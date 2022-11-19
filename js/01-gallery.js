@@ -26,14 +26,16 @@ function makeGalleryMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `
-      <a class="gallery__link gallery__item" href="${original}">
+      <div class="gallery__item">
+      <a class="gallery__link" href="${original}">
         <img class="gallery__image lazyload"
             loading="lazy"
             data-src="${preview}"
             data-source="${original}"
             alt="${description}"
           />
-        </a>`
+        </a>
+        </div>`
      })
     .join("");
 }
@@ -59,7 +61,7 @@ function onModalOriginalPicture(targetClick) {
   const urlOriginalSizePicture = targetClick.dataset.source;
 
   const instance = basicLightbox.create(
-    ` <div class="modal"> <img src="${urlOriginalSizePicture}" alt="Big Pictures"/> </div> `,
+    `<img src="${urlOriginalSizePicture}" alt="Big Pictures"/>`,
     {
       onShow: (instance) => {
         document.addEventListener("keydown", onEscapeButton);
