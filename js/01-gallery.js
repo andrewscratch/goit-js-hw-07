@@ -62,11 +62,11 @@ function onModalOriginalPicture(targetClick) {
     ` <div class="modal"> <img src="${urlOriginalSizePicture}" alt="Big Pictures"/> </div> `,
     {
       onShow: (instance) => {
-        galleryContainer.addEventListener("keydown", onEscapeButton);
+        document.addEventListener("keydown", onEscapeButton);
       },
 
       onClose: (instance) => {
-        galleryContainer.removeEventListener("keydown", onEscapeButton);
+        document.removeEventListener("keydown", onEscapeButton);
       },
     }
   );
